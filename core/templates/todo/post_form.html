@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main>
+    <div class="app">
+        <header>
+            <h1>Your Todos</h1>
+        </header>
+        
+
+        <br>
+        <form method="post" role="form" action="{% url 'todo:post_edit' post.id %}">
+            {% csrf_token %}
+            <div class="todo-list" id="list">
+                    <div class="item">
+                        <input type="text" name="title" value="{{ post.title }}" placeholder="Todo Title" required>                         
+                        <div class="actions">
+                            <button type="submit" class="material-icons add-btn">add</button>
+                        </div>
+                    </div>
+            </div>
+        </form>
+        <br>
+        <hr class="my-4">
+        <br>
+    </div>
+</main>
+
+{% endblock %}

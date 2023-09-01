@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<main>
+    <div class="app">
+        <header>
+            <h1>Your Todos</h1>
+        </header>
+        
+
+        <br>
+        <form method="post" role="form" action="{% url 'todo:post_create' %}">
+            {% csrf_token %}
+            <div class="todo-list" id="list">
+                    <div class="item">
+                        <input type="text" name="title" placeholder="Todo Title" required>                         
+                        <div class="actions">
+                            <button type="submit" class="material-icons add-btn">add</button>
+                        </div>
+                    </div>
+            </div>
+        </form>
+        <br>
+        <hr class="my-4">
+        <br>
+        <div class="todo-list" id="list">
+        {% for post in posts %}
+        {% if post.status == 0%}
+            <div class="item">
+                <div class="actions">
+                    <form method="get" action="{% url 'todo:post_complete' post.id %}">
+                        <button class="material-icons done-btn">done</button>
+                    </form>
+                </div>
+                &nbsp; &nbsp;
+                <input type="text" value="{{ post.title }}" disabled />
+                <div class="actions">
+                    <form method="post" role="form" action="{% url 'todo:post_edit' post.id %}">
+                        {% csrf_token %}
+                        <button class="material-icons">edit</button>
+                    </form>
+                    <form method="post" role="form" action="{% url 'todo:post_delete' post.id %}">
+                        {% csrf_token %}
+                        <button class="material-icons remove-btn">remove_circle</button>
+                    </form>
+                </div>
+            </div>
+        {% else %}
+            <div class="status">
+                &nbsp; &nbsp;
+                <input type="text" value="{{ post.title }}" disabled />
+                <div class="actions">
+                    <form method="post" role="form" action="{% url 'todo:post_edit' post.id %}">
+                        {% csrf_token %}
+                        <button class="material-icons">edit</button>
+                    </form>
+                    <form method="post" role="form" action="{% url 'todo:post_delete' post.id %}">
+                        {% csrf_token %}
+                        <button class="material-icons remove-btn">remove_circle</button>
+                    </form>
+                </div>
+            </div>
+        {% endif %}
+        {% endfor %}
+        </div>
+    </div>
+</main>
+
+{% endblock %}
