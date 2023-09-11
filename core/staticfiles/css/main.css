@@ -16,7 +16,7 @@ button {
 }
 
 body {
-    background-color: #242948;
+    background: url("../img/01.jpg") no-repeat;
     color: #fff;
 }
 
@@ -166,4 +166,19 @@ main {
 
 .actions button:last-of-type {
     margin-right: 0;
+}
+
+.login-icon {
+    margin: 15px 15px 0;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background-color: #1e223d;
+    color: #fff;
+}
+
+.login-icon:hover {
+    outline: 2px solid #fff;
 }
