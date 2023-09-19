@@ -1,6 +1,6 @@
 
 <h1 align="center">Django Class Based View Todo App</h1>
-<h3 align="center">A simple todo app project with class based view for learning</h3>
+<h3 align="center">A simple todo app project with class based view</h3>
 <p align="center">
 <a href="https://www.python.org" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a>
 <a href="https://www.djangoproject.com/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/django/django-original.svg" alt="django" width="40" height="40"/> </a>
